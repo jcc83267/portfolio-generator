@@ -1,15 +1,7 @@
 const { prompt } = require('inquirer');
 const inquirer = require('inquirer');
-// const fs = require('fs');
-// const generatePage = require('./src/page-template');
-
-// const pageHTML = generatePage(name, github);
-
-// fs.writeFile('./index.html', pageHTML, err => {
-//     if (err) throw new Error(err);
-
-//     console.log("Portfolio completed! Check out index.html to see the output!")
-// });
+const fs = require('fs');
+const generatePage = require('./src/page-template');
 
 const promptUser = () => {
     return inquirer.prompt([
@@ -143,8 +135,16 @@ const promptProject = portforlioData => {
 promptUser()
     .then(promptProject)
     .then(portforlioData => {
-        console.log(portforlioData);
+        const pageHTML = generatePage(portforlioData);
+
+        fs.writeFile('./index.html', pageHTML, err => {
+        //     if (err) throw new Error(err);
+
+        //     console.log("Portfolio completed! Check out index.html to see the output!")
+        });
+
+
+
     });
-
-
+;
 
