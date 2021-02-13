@@ -49,7 +49,7 @@ const generateProjects = projectsArr => {
                     `;
                     })
                     .join('')}
-            </div>
+             </div>
         </section>
     `;
 }
@@ -58,9 +58,6 @@ module.exports = templateData => {
     console.log(templateData);
     //destructure project anmd about data from templatedata based on their property key name
     const { projects, about, ...header } = templateData
-
-
-
     return `
 <!DOCTYPE html>
 <html lang="en">
@@ -100,4 +97,3 @@ module.exports = templateData => {
 </html>
     `;
 }
-
